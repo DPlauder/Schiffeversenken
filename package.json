@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "name": "schiffeversenken",
+  "version": "1.0.0",
+  "main":"index.js",
+  "private": true,
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DPlauder/Schiffeversenken.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DPlauder/Schiffeversenken/issues"
+  },
+  "homepage": "https://github.com/DPlauder/Schiffeversenken#readme",
+  "description": ""
+}
