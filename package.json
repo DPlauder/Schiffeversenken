@@ -5,11 +5,14 @@
   },
   "name": "schiffeversenken",
   "version": "1.0.0",
-  "main":"index.js",
   "private": true,
-  "devDependencies": {},
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
