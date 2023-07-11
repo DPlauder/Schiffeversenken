@@ -2,9 +2,9 @@
 
 //import './style.css'; 
 import {Board} from './modules/board';
-import {Ships} from './modules/ships';
+//import {Ships} from './modules/ships';
 
 const test = new Board();
-//console.log(test);
+console.log(test);
 
-const ships = new Ships();
+//const ships = new Ships();

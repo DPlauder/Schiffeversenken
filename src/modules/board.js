@@ -7,6 +7,8 @@ class Board{
         this.grid = 10;
         this.board = [];
         this.createBoxes();
+        this.placeShips()
+        //this.getPlayerShipStartpoint()
     }
     createBoxes(){
         for(let i = 0; i < this.grid; i++){
@@ -17,13 +19,23 @@ class Board{
             this.board.push(row);            
         }
     }
-    createPlayerShips(){
-        for(let i = 0; i < this.ships_lenght.length; i++){
-        const ship = new Ships(startpoint, this.ships_lenght[i]);
-        }
+    placeShips(){
+        const startpoint = this.getPlayerShipStartpoint();
+        const column = startpoint[0];
+        const row = startpoint[1];
+        this.board[column][row] = 'O';
+
+    }
+
+    getPlayerShipStartpoint(){
+        let startpoint = [];
+        let startColumn = [prompt('zeile')];
+        startpoint.push(startColumn);
+        let startRow = [prompt('reihe')];
+        startpoint.push(startRow);
+        return startpoint;
     }
     createComShips(){
-
     }
 
     
