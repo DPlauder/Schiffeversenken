@@ -1,6 +1,10 @@
 
 class Player{
-    constructor(name){
+    constructor(name, player){
         this.player = name;
+        this.human = player;
+        this.board = new Board();
     }
 }
+
+//export {Player}
