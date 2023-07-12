@@ -1,5 +1,5 @@
 
-//import {Player} from './players'
+import {Ships} from './ships'
 
 class Board{
     //ships = [2, 2, 3, 3, 3, 4, 4, 5]
@@ -8,13 +8,14 @@ class Board{
         //this.player = "";
         this.grid = 10;
         this.board = [];
-        //this.ships = [];
+        this.ships = new Ships();
         this.shipCount = 0;
         this.createBoxes();
     }
     createBoxes(){
         this.board = [];
         this.shipCount = 0;
+        this.ships.clearShips();
         for(let i = 0; i < this.grid; i++){        
             let row = [];   
             for(let j = 0; j < this.grid; j++){
@@ -65,19 +66,34 @@ class Board{
             const row = shipCordinates[i][1];
             if(this.board[column][row] === "O"){
                 console.log("Platzieren nicht möglich");               
-                this.createBoxes();
-                break;
+                this.removeShip(i); // nicht fertig...ersetzt das neue board erstellen
+                return;
             } else {
                 this.board[column][row] = "O";               
             }                      
         }
+        this.ships.addShip(shipCordinates)
         this.shipCount += 1; 
         //console.log(this.shipCount);
     }
+
     checkAllShipsPlaced() {
         //console.log('test');
         if (this.shipCount === this.ships_length.length) {
           console.log("All ships placed on the board.");
+        }
+    }
+    checkHit(column, row){
+        if(this.board[column][row] === "O"){
+            console.log('Hit');
+            this.board[column][row] = "X";
+            
+        } else if(this.board[column][row] === "X" || this.board[column][row] === "M") {
+            console.log('Already Shot There');
+        }
+        else {
+            console.log('Miss');
+            this.board[column][row] = "M";
         }
     }
 }

@@ -1,12 +1,18 @@
 
 
 class Ships{
-    constructor(column, row,  ship_length){
-        this.ships_lenght = ship_length;
-        this.column = parseInt(column);
-        this.row  = parseInt(row);
-        this.sunk = false;
-        this.coordinates = [];
+    constructor(){
+        this.ships = [];
+    }
+    addShip(coordinates){
+        const ship = {
+            coordinates: coordinates,
+            sunk: false,
+        };
+        this.ships.push(ship);
+    }
+    clearShips(){
+        this.ships = [];
     }
 }
 export {Ships}
