@@ -5,7 +5,7 @@ class Board {
     //ships = [2, 2, 3, 3, 3, 4, 4, 5]
     constructor(ships = [2, 2, 3, 3, 3, 4, 4, 5]) {
         this.ships_length = ships;
-        //this.player = "";
+        this.player = "";
         this.grid = 10;
         this.board = [];
         this.ships = new Ships();
@@ -25,8 +25,7 @@ class Board {
     getShipStartpoint() {
         for (let i = 0; i < this.ships_length.length; i++) {
             const shipLength = this.ships_length[i];
-            let shipPlaced = false;
-        
+            let shipPlaced = false;       
             while (!shipPlaced) {
               let startpoint = [];
               let column = null;
@@ -56,21 +55,21 @@ class Board {
           }
           this.checkAllShipsPlaced();
         }
+
     createFullShip(startpoint, shipLength) {
         let column = parseInt(startpoint[0]);
         let row = parseInt(startpoint[1]);
         const shipCoordinates = [];
         for (let i = 0; i < shipLength; i++) {
             if (this.board[column][row] === "O") {
-              return null;
+                return null;
             }
             let cords = [column, row];
             shipCoordinates.push(cords);
             row += 1;
-          }
-          
-          return shipCoordinates
-    }
+            }         
+            return shipCoordinates
+        }
     placeShip(shipCordinates) {
         //console.log(shipCordinates);
         for (let i = 0; i < shipCordinates.length; i++) {
@@ -84,7 +83,6 @@ class Board {
         }
         return true
     }
-
     checkAllShipsPlaced() {
         //console.log('test');
         if (this.shipCount === this.ships_length.length) {
@@ -93,9 +91,9 @@ class Board {
     }
     checkHit(column, row) {
         if (this.board[column][row] === "O") {
-            console.log('Hit');
             this.board[column][row] = "X";
-
+            console.log('Hit');
+            this.ships.updateShip(column, row);
         } else if (this.board[column][row] === "X" || this.board[column][row] === "M") {
             console.log('Already Shot There');
         }
@@ -105,5 +103,5 @@ class Board {
         }
     }
 }
-export { Board }
+export {Board}
 
