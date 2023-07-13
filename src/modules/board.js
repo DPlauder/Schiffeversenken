@@ -102,6 +102,12 @@ class Board {
             this.board[column][row] = "M";
         }
     }
+    checkGameOver(){
+        if (this.ships.allShipsDestroyed() === true){
+            console.log('Alle Schiffe versenkt');
+            return true
+        }
+    }
 }
 export {Board}
 

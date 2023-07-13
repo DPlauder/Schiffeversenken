@@ -21,7 +21,7 @@ class Ships{
                     ship.length -= 1;
                     if(ship.length === 0){
                         ship.sunk = true;
-                        console.log("ship destroyed");
+                        console.log("Ship destroyed");
                     }
                 return;
                 }
