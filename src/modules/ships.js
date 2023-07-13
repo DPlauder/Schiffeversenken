@@ -8,11 +8,12 @@ class Ships{
         const ship = {
             coordinates: coordinates,
             sunk: false,
+            length: coordinates.length,
         };
         this.ships.push(ship);
     }
-    clearShips(){
-        this.ships = [];
+    removeShip(index){
+        this.ships.splice(index, 1);
     }
 }
 export {Ships}
