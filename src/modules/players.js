@@ -1,10 +1,9 @@
+import {Board} from './board';
 
 class Player{
-    constructor(name, player){
-        this.player = name;
-        this.human = player;
-        this.board = new Board();
+    constructor(player = ""){
+        this.player = player;
+        this.board = new Board(this.player);
     }
 }
-
-//export {Player}
+export {Player}

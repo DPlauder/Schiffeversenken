@@ -1,5 +1,4 @@
 
-import {Board} from './board'
 
 class Ships{
     constructor(){

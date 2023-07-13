@@ -1,18 +1,20 @@
 
 import { Ships } from './ships'
+import { Overlay } from './overlay';
 
 class Board {
     //ships = [2, 2, 3, 3, 3, 4, 4, 5]
-    constructor(ships = [2, 2, 3, 3, 3, 4, 4, 5]) {
+    constructor(player = "", grid = 10, ships = [2, 2, 3, 3, 3, 4, 4, 5]) {
         this.ships_length = ships;
-        this.player = "";
-        this.grid = 10;
+        this.player = player;
+        this.grid = grid;
         this.board = [];
         this.ships = new Ships();
         this.shipCount = 0;
         this.createBoxes();
     }
     createBoxes() {
+        const overlay = new Overlay(this.grid)
         for (let i = 0; i < this.grid; i++) {
             let row = [];
             for (let j = 0; j < this.grid; j++) {
