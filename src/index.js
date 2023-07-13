@@ -15,6 +15,7 @@ const init = () => {
     console.log('p1', player1);
     console.log('p2', player2);
     
+    player1.board.overlay.checkClickCoords()
     /*
     player1.board.checkHit(1, 1);
     player1.board.checkHit(2, 1);
