@@ -1,21 +1,13 @@
 "use strict";
 
 import './style.css'
-import {Player} from './modules/players'
-//import {Board} from './modules/board';
-
-const playGame = () => {
-
-}
-
+import {Game} from './modules/game.js'
 
 const init = () => {
-    const player1 = new Player();
-    const player2 = new Player();
-    console.log('p1', player1);
-    console.log('p2', player2);
+    const newGame = new Game(); // if player needed add 1 or 2 strings
+    console.log('p1', newGame);
     
-    player1.board.overlay.checkClickCoords()
+    //player1.board.overlay.checkClickCoords()
     /*
     player1.board.checkHit(1, 1);
     player1.board.checkHit(2, 1);

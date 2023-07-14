@@ -11,7 +11,7 @@ class Board {
         this.board = [];
         this.ships = new Ships();
         this.shipCount = 0;
-        this.overlay = new Overlay(this.grid);
+        this.overlay = new Overlay(this.grid, this.player);
         this.createBoxes();
     }
     createBoxes() {
@@ -35,15 +35,6 @@ class Board {
                 let row = null;
                 //Input Human Player       
                 if (this.player) {
-/*                   
-                    let coords = this.overlay.checkClickCoords();
-                    if(coords){
-                        column = coords[0];
-                        row = coords[1];
-                    }
-                    
-                    //console.log(coords);
-*/
                     column = [prompt('zeile')];
                     row = [prompt('reihe')];
                 } else {
@@ -62,7 +53,6 @@ class Board {
                 } else {
                     console.log("Platzieren nicht möglich");
                 }
-
             }
         }
         this.checkAllShipsPlaced();
@@ -102,18 +92,23 @@ class Board {
             this.board[column][row] = "X";
             console.log('Hit');
             this.ships.updateShip(column, row);
+            return true
         } else if (this.board[column][row] === "X" || this.board[column][row] === "M") {
             console.log('Already Shot There');
+            return false
         }
         else {
             console.log('Miss');
             this.board[column][row] = "M";
+            return true
         }
     }
     checkGameOver() {
         if (this.ships.allShipsDestroyed() === true) {
             console.log('Alle Schiffe versenkt');
             return true
+        } else {
+            return false
         }
     }
 }

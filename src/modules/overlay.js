@@ -1,10 +1,10 @@
 
 
 class Overlay {
-    constructor(size) {
+    constructor(size, player) {
         this.size = size;
         this.overlay = document.getElementById('content');
-
+        console.log(player);
         this.gameboard = document.createElement('div');
         this.gameboard.classList.add('gameboard');
         this.overlay.appendChild(this.gameboard);
@@ -26,18 +26,13 @@ class Overlay {
             this.gameboard.appendChild(gridColumn);
         }
     }
-    checkClickCoords() {
-        let row = ""
-        let column = ""
-        this.gameboard.addEventListener('click', (e) => {
-            row = e.target;
-            column = row.parentNode;
-            row = parseInt(row.getAttribute("row"));
-            column = parseInt(column.getAttribute("column"));
-            const coords = [column, row];
-            console.log(coords, typeof(coords));
-            return coords
-        })
+    checkClickCoords(e) {
+        let row = e.target;
+        let column = row.parentNode;            
+        row = parseInt(row.getAttribute("row"));
+        column = parseInt(column.getAttribute("column"));
+        const coords = [column, row];
+        return coords
     }
 }
 
